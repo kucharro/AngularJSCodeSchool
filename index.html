@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ogarniacz</title>
+  <meta name="description" content="Ogarniacz — kolorowa aplikacja do ogarniania życia i spraw osobistych.">
+  <meta name="theme-color" content="#f59e0b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Ogarniacz">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="nav">
+      <a class="brand" href="#/dzis"><img src="icons/icon.svg" alt="" width="32" height="32"> Ogarniacz</a>
+      <nav id="nav" aria-label="Moduły"></nav>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <h1 id="page-title">Ogarniacz</h1>
+        <div class="topbar-actions">
+          <button class="btn ghost" data-action="random" title="Wylosuj zadanie, gdy nie wiesz od czego zacząć">🎲 <span class="hide-sm">Co teraz?</span></button>
+          <a class="btn ghost" href="#/ustawienia" title="Ustawienia" aria-label="Ustawienia">⚙️</a>
+        </div>
+      </header>
+      <section id="view" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <button class="fab" data-action="capture" title="Szybki zrzut z głowy (klawisz N)" aria-label="Szybki zrzut z głowy">＋</button>
+
+  <dialog id="capture">
+    <form class="modal-body" data-form="capture">
+      <h2>🧠 Szybki zrzut</h2>
+      <p class="muted small">Wyrzuć z głowy, posortujesz później. Każda linia = osobna myśl.</p>
+      <textarea name="text" rows="4" data-enter-submit placeholder="np. zadzwonić do mechanika…"></textarea>
+      <div class="row end">
+        <button type="button" class="btn ghost" data-action="closeCapture">Anuluj</button>
+        <button class="btn">Zapisz ↵</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="modal"><div class="modal-body"></div></dialog>
+  <div id="toasts" aria-live="polite"></div>
+</body>
+</html>
